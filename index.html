@@ -3,12 +3,57 @@
 <head>
     <title>Lee Wilkers</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
+        body { font-family: Arial, sans-serif; margin: 40px; transition: all 0.5s ease; }
         h1 { color: #333; }
+        body {
+            background-color: white;
+            color: black;
+        }
+        .invert {
+            background-color: black;
+            color: white;
+        }
+        .switch {
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            background-color: #ddd;
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .switch:before {
+            content: "";
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background-color: white;
+            border-radius: 50%;
+            top: 1px;
+            left: 1px;
+            transition: transform 0.3s ease;
+        }
+        .switch.on {
+            background-color: #4CAF50;
+        }
+        .switch.on:before {
+            transform: translateX(30px);
+        }
     </style>
 </head>
 <body>
     <h1>Lee Wilkers</h1>
     <p>Hi, I'm Lee.</p>
+
+    <div id="lightSwitch" class="switch"></div>
+
+    <script>
+        document.getElementById('lightSwitch').addEventListener('click', function() {
+            document.body.classList.toggle('invert');
+            this.classList.toggle('on');
+        });
+    </script>
 </body>
 </html>
