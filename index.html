@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Lee Wilkers</title>
+    <meta charset="UTF-8">
+    <title>Lee's Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -9,25 +10,23 @@
             font-family: 'Playfair Display', serif;
             margin: 20px;
             transition: background-color 0.5s ease, color 0.5s ease;
+            background-color: white;
+            color: black;
         }
         h1, p {
             transition: color 0.5s ease;
         }
         h1 {
             color: #333;
-            font-size: 3em; /* Larger size */
-            font-weight: 700; /* Bold weight */
+            font-size: 3em;
+            font-weight: 700;
             margin-bottom: 10px;
         }
         p {
             color: black;
-            font-size: 1.5em; /* Larger size */
-            font-weight: 400; /* Regular weight */
+            font-size: 1.5em;
+            font-weight: 400;
             margin-top: 5px;
-        }
-        body {
-            background-color: white;
-            color: black;
         }
         .invert {
             background-color: black;
@@ -112,39 +111,21 @@
         .invert .ghost {
             display: block;
         }
-
-        /* Responsive adjustments */
         @media (max-width: 600px) {
-            body {
-                margin: 10px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            p {
-                font-size: 1.25em;
-            }
-            .switch {
-                width: 50px;
-                height: 25px;
-            }
-            .switch:before {
-                width: 22px;
-                height: 22px;
-            }
-            .switch.on:before {
-                transform: translateX(25px);
-            }
-            .ghost {
-                width: 40px;
-                height: 40px;
-            }
+            body { margin: 10px; }
+            h1 { font-size: 2em; }
+            p { font-size: 1.25em; }
+            .switch { width: 50px; height: 25px; }
+            .switch:before { width: 22px; height: 22px; }
+            .switch.on:before { transform: translateX(25px); }
+            .ghost { width: 40px; height: 40px; }
         }
     </style>
 </head>
 <body>
-    <h1>Hi, I'm Lee</h1>
+    <h1>Hi, I'm Lee 👋</h1>
     <p>This is my website.</p>
+    <p>LeeWilkers@Emory.edu</p>
 
     <div id="lightSwitch" class="switch"></div>
     <div class="ghost">
