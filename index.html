@@ -2,47 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lee Wilkers</title>
+    <title>Lee's Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 20px;
             transition: background-color 0.5s ease, color 0.5s ease;
             background-color: white;
             color: black;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        h1, p {
-            transition: color 0.5s ease;
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            flex-grow: 1;
         }
         h1 {
-            color: #333;
-            font-size: 3em;
+            font-size: 3.5em;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
         }
-        p {
-            color: black;
+        h1 .wave {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        .subtext {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .email {
             font-size: 1.5em;
-            font-weight: 400;
-            margin-top: 5px;
-        }
-        .invert {
-            background-color: black;
-            color: white;
-        }
-        .invert h1, .invert p {
-            color: white;
+            margin-top: 20px;
         }
         .switch {
-            display: inline-block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
             width: 60px;
             height: 30px;
             background-color: #ddd;
             border-radius: 15px;
-            position: relative;
             cursor: pointer;
-            margin-top: 20px;
             transition: background-color 0.3s ease;
         }
         .switch:before {
@@ -65,8 +71,8 @@
         .ghost {
             display: none;
             position: fixed;
-            bottom: 10px;
-            right: 10px;
+            bottom: 20px;
+            right: 20px;
             width: 50px;
             height: 50px;
             background: white;
@@ -107,13 +113,18 @@
             background: black;
             border-radius: 50%;
         }
+        .invert {
+            background-color: black;
+            color: white;
+        }
         .invert .ghost {
             display: block;
         }
         @media (max-width: 600px) {
-            body { margin: 10px; }
-            h1 { font-size: 2em; }
-            p { font-size: 1.25em; }
+            body { padding: 15px; }
+            h1 { font-size: 2.5em; }
+            .subtext { font-size: 1em; }
+            .email { font-size: 1.2em; }
             .switch { width: 50px; height: 25px; }
             .switch:before { width: 22px; height: 22px; }
             .switch.on:before { transform: translateX(25px); }
@@ -122,9 +133,11 @@
     </style>
 </head>
 <body>
-    <h1>👋 Hi, I'm Lee </h1>
-    <p>This is my website.</p>
-    <p>leewilkers@emory.edu</p>
+    <div class="content">
+        <h1><span class="wave">👋</span> Hi, I'm Lee</h1>
+        <p class="subtext">This is my website.</p>
+        <p class="email">leewilkers@emory.edu</p>
+    </div>
 
     <div id="lightSwitch" class="switch"></div>
     <div class="ghost">
