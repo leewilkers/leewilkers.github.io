@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.4;
             margin: 0;
             padding: 20px;
             max-width: 800px;
@@ -17,15 +17,12 @@
         h1 {
             font-size: 28px;
             font-weight: normal;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
         p {
             font-size: 16px;
+            margin-top: 0;
             margin-bottom: 20px;
-        }
-        .wave {
-            font-size: 24px;
-            margin-right: 5px;
         }
         .email-link {
             color: #4a9eff;
@@ -34,71 +31,11 @@
         .email-link:hover {
             text-decoration: underline;
         }
-        .switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 25px;
-            background-color: #444;
-            border-radius: 12px;
-            cursor: pointer;
-        }
-        .switch:before {
-            content: "";
-            position: absolute;
-            width: 21px;
-            height: 21px;
-            border-radius: 50%;
-            top: 2px;
-            left: 2px;
-            background-color: #e0e0e0;
-            transition: 0.3s;
-        }
-        .switch.on {
-            background-color: #666;
-        }
-        .switch.on:before {
-            transform: translateX(25px);
-        }
-        .ghost {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            background: #e0e0e0;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255,255,255,0.5);
-        }
-        .invert {
-            background-color: white;
-            color: black;
-        }
-        .invert .email-link {
-            color: blue;
-        }
-        .invert .ghost {
-            display: block;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
     </style>
 </head>
 <body>
     <h1>Hi, I'm Lee</h1>
     <p>This is my website.</p>
-    <p><a href="mailto:leewilkers@emory.edu" class="email-link">leewilkers@emory.edu</a></p>
-
-    <div id="lightSwitch" class="switch"></div>
-    <div class="ghost"></div>
-
-    <script>
-        document.getElementById('lightSwitch').addEventListener('click', function() {
-            document.body.classList.toggle('invert');
-            this.classList.toggle('on');
-        });
-    </script>
+    <p>DM me on Twitter or email me at <a href="mailto:leewilkers@emory.edu" class="email-link">leewilkers@emory.edu</a></p>
 </body>
 </html>
