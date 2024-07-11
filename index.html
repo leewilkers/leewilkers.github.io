@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Lee Wilkers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -109,28 +110,26 @@
 
         /* Responsive adjustments */
         @media (max-width: 600px) {
+            body {
+                margin: 20px;
+            }
             h1 {
                 font-size: 1.5em;
             }
-            
             p {
-                font-size: 0.875em;
+                font-size: 1em;
             }
-
             .switch {
                 width: 50px;
                 height: 25px;
             }
-
             .switch:before {
                 width: 22px;
                 height: 22px;
             }
-
             .switch.on:before {
                 transform: translateX(25px);
             }
-
             .ghost {
                 width: 40px;
                 height: 40px;
