@@ -24,22 +24,10 @@
             font-weight: 400;
             color: #ffffff;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
             transition: color 0.3s ease;
         }
         h1:hover {
             color: #4db8ff;
-        }
-        .logo {
-            width: 40px;
-            height: 40px;
-            margin-right: 15px;
-            fill: currentColor;
-            transition: transform 0.3s ease;
-        }
-        h1:hover .logo {
-            transform: translateY(-5px);
         }
         p {
             font-weight: 300;
@@ -72,30 +60,6 @@
             color: #99d6ff;
             text-decoration: underline;
         }
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 200px;
-            background-color: #555;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -100px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -109,24 +73,12 @@
             h1 {
                 font-size: 1.8em;
             }
-            .logo {
-                width: 30px;
-                height: 30px;
-            }
         }
     </style>
 </head>
 <body>
     <div class="profile">
-        <h1>
-            <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 10 C25 10 10 30 10 50 C10 80 30 90 50 90 C70 90 90 80 90 50 C90 30 75 10 50 10 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-                <path d="M35 45 Q35 40, 40 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                <path d="M65 45 Q65 40, 60 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                <path d="M30 65 Q50 75, 70 65" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-            Hi, I'm Lee.
-        </h1>
+        <h1>Hi, I'm Lee.</h1>
         <p>I do mixed-methods research and consulting on global health at <a href="https://sph.emory.edu/" target="_blank">RSPH@Emory</a>.</p>
         <p>Most of my work revolves around the topics of ethics, learning, compassion, and "design".</p>
         <div class="focus-areas">
