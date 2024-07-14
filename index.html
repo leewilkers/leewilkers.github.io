@@ -1,102 +1,153 @@
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        line-height: 1.6;
-        color: #333333;
-        background-color: #f0e6e0;
-        margin: 0;
-        padding: 20px;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    .profile {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 40px;
-        background-color: #ffffff;
-        box-shadow: 5px 5px 0px #333333;
-    }
-    h1 {
-        font-size: 2.5em;
-        font-weight: 700;
-        color: #333333;
-        margin-bottom: 20px;
-        line-height: 1.2;
-    }
-    p {
-        font-size: 1.1em;
-        margin-bottom: 20px;
-        color: #333333;
-    }
-    .focus-areas ul {
-        list-style-type: disc;
-        padding-left: 20px;
-    }
-    .focus-areas li {
-        font-size: 1.1em;
-        margin-bottom: 15px;
-        color: #333333;
-    }
-    a {
-        color: #0066cc;
-        text-decoration: none;
-        border-bottom: 2px solid #0066cc;
-        transition: all 0.3s ease;
-    }
-    a:hover {
-        background-color: #0066cc;
-        color: #ffffff;
-    }
-    .toggle-container {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-    }
-    .toggle-label {
-        display: block;
-        width: 60px;
-        height: 34px;
-        background-color: #333333;
-        border-radius: 34px;
-        position: relative;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .toggle-button {
-        position: absolute;
-        content: '';
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        border-radius: 50%;
-        transition: 0.3s;
-    }
-    .toggle-input:checked + .toggle-label {
-        background-color: #4db8ff;
-    }
-    .toggle-input:checked + .toggle-label .toggle-button {
-        transform: translateX(26px);
-    }
-    #cat {
-        display: none;
-        position: fixed;
-        top: 60px;
-        right: 20px;
-        width: 150px;
-        z-index: 1000;
-        border: 2px solid #333333;
-    }
-    @media (max-width: 600px) {
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lee Wilkers</title>
+    <style>
         body {
-            padding: 10px;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f0e6e0;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
         .profile {
-            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 5px 5px 0px #333333;
         }
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
-    }
-</style>
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        .focus-areas ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .focus-areas li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            border-bottom: 2px solid #0066cc;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            background-color: #0066cc;
+            color: #ffffff;
+        }
+        .toggle-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+        .toggle-label {
+            display: block;
+            width: 60px;
+            height: 34px;
+            background-color: #333333;
+            border-radius: 34px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .toggle-button {
+            position: absolute;
+            content: '';
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .toggle-input:checked + .toggle-label {
+            background-color: #4db8ff;
+        }
+        .toggle-input:checked + .toggle-label .toggle-button {
+            transform: translateX(26px);
+        }
+        #cat {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            width: 150px;
+            z-index: 1000;
+            border: 2px solid #333333;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .profile {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-container">
+        <input type="checkbox" id="modeToggle" class="toggle-input">
+        <label for="modeToggle" class="toggle-label">
+            <span class="toggle-button"></span>
+        </label>
+    </div>
+    <div class="profile">
+        <h1>Hi, I'm Lee.</h1>
+        <p>I do mixed-methods research and consulting on global health at <a href="https://sph.emory.edu/" target="_blank">RSPH@Emory</a>.</p>
+        <p>Most of my work revolves around the topics of ethics, learning, compassion, and "design".</p>
+        <div class="focus-areas">
+            <p>Here are some things I'm focused on right now (as of 2024):</p>
+            <ul>
+                <li><a href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2024.1332779/full" target="_blank">Intimate partner violence & coordinated care systems</a></li>
+                <li>Neglected tropical diseases, antibiotic resistance, and the incommensurability of risks and benefits</li>
+                <li><a href="https://www.science.org/doi/10.1126/science.add5912" target="_blank">Vaccine equity-deficit cascades</a></li>
+                <li><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.992705/full" target="_blank">Compassion</a> and <a href="https://journals.lww.com/epidem/fulltext/2020/03000/positive_epidemiology_.6.aspx" target="_blank">positive epidemiology</a></li>
+            </ul>
+        </div>
+    </div>
+    <img id="cat" src="https://media.giphy.com/media/B8MhRFZsRVRmg/giphy.gif" alt="Cat turning off light">
+    <script>
+        const body = document.body;
+        const modeToggle = document.getElementById('modeToggle');
+        const cat = document.getElementById('cat');
+        modeToggle.addEventListener('change', () => {
+            if (modeToggle.checked) {
+                body.classList.add('light-mode');
+                cat.style.display = 'block';
+                setTimeout(() => {
+                    body.classList.remove('light-mode');
+                    modeToggle.checked = false;
+                    setTimeout(() => {
+                        cat.style.display = 'none';
+                    }, 1000);
+                }, 1500);
+            } else {
+                body.classList.remove('light-mode');
+            }
+        });
+    </script>
+</body>
+</html>
