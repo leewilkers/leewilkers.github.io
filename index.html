@@ -5,21 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lee Wilkers</title>
     <style>
-        /* ... (previous styles remain the same) ... */
-
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #1a1a1a;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .profile {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2.2em;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        h1:hover {
+            color: #4db8ff;
+        }
+        p {
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        .focus-areas, .beliefs {
+            margin-bottom: 20px;
+        }
+        .focus-areas p, .beliefs p {
+            margin-bottom: 5px;
+        }
+        .focus-areas ul, .beliefs ul {
+            margin-top: 0;
+            padding-left: 20px;
+        }
+        .focus-areas li, .beliefs li {
+            font-weight: 300;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: fadeIn 0.5s ease forwards;
+        }
+        a {
+            color: #4db8ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #99d6ff;
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+        body.light-mode {
+            color: #333333;
+            background-color: #f0f0f0;
+        }
+        body.light-mode h1 {
+            color: #000000;
+        }
+        body.light-mode a {
+            color: #0066cc;
+        }
+        body.light-mode a:hover {
+            color: #004080;
+        }
         .toggle-container {
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 1001; /* Ensure the toggle is above the cat */
+            z-index: 1001;
         }
-
+        .toggle-input {
+            display: none;
+        }
+        .toggle-label {
+            display: block;
+            width: 60px;
+            height: 34px;
+            background-color: #2c3e50;
+            border-radius: 34px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .toggle-button {
+            position: absolute;
+            content: '';
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .toggle-input:checked + .toggle-label {
+            background-color: #4db8ff;
+        }
+        .toggle-input:checked + .toggle-label .toggle-button {
+            transform: translateX(26px);
+        }
+        body.light-mode .toggle-label {
+            background-color: #bdc3c7;
+        }
         #cat {
             display: none;
             position: fixed;
             top: 0;
             right: 0;
-            width: 200px; /* Adjust as needed */
+            width: 200px;
             z-index: 1000;
         }
     </style>
@@ -32,28 +145,35 @@
         </label>
     </div>
     <div class="profile">
-        <!-- ... (previous content remains the same) ... -->
+        <h1>Hi, I'm Lee.</h1>
+        <p>I do mixed-methods research and consulting on global health at <a href="https://sph.emory.edu/" target="_blank">RSPH@Emory</a>.</p>
+        <p>Most of my work revolves around the topics of ethics, learning, compassion, and "design".</p>
+        <div class="focus-areas">
+            <p>Here are some things I'm focused on right now (as of 2024):</p>
+            <ul>
+                <li>Neglected tropical diseases, antibiotic resistance, and the incommensurability of risks and benefits</li>
+                <li><a href="https://www.science.org/doi/10.1126/science.add5912" target="_blank">Vaccine equity-deficit cascades</a></li>
+                <li><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.992705/full" target="_blank">Compassion</a> and <a href="https://journals.lww.com/epidem/fulltext/2020/03000/positive_epidemiology_.6.aspx" target="_blank">positive epidemiology</a></li>
+            </ul>
+        </div>
+        <p>Feel free to send me a message anywhere you see me — <a href="https://x.com/LeeWilkers" target="_blank">DM me on Twitter</a> or email me at <a href="mailto:leewilkers@emory.edu">leewilkers@emory.edu</a>.</p>
     </div>
-
     <img id="cat" src="https://media.giphy.com/media/B8MhRFZsRVRmg/giphy.gif" alt="Cat turning off light">
-
     <script>
         const body = document.body;
         const modeToggle = document.getElementById('modeToggle');
         const cat = document.getElementById('cat');
-
         modeToggle.addEventListener('change', () => {
             if (modeToggle.checked) {
                 body.classList.add('light-mode');
-                // Show the cat and switch back to dark mode after a delay
                 cat.style.display = 'block';
                 setTimeout(() => {
                     body.classList.remove('light-mode');
                     modeToggle.checked = false;
                     setTimeout(() => {
                         cat.style.display = 'none';
-                    }, 1000); // Hide cat after 1 second (adjust based on GIF duration)
-                }, 1500); // Switch back after 1.5 seconds (adjust based on GIF duration)
+                    }, 1000);
+                }, 1500);
             } else {
                 body.classList.remove('light-mode');
             }
