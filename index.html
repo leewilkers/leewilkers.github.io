@@ -128,14 +128,26 @@
         <p>Feel free to send me a message anywhere you see me — <a href="https://x.com/LeeWilkers" target="_blank">DM me on Twitter</a> or email me at <a href="mailto:leewilkers@emory.edu">leewilkers@emory.edu</a>.</p>
     </div>
 
+    <img id="cat" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cat" style="display: none; position: fixed; right: 70px; top: 20px; width: 100px; z-index: 1000;">
+
     <script>
         const body = document.body;
         const modeToggle = document.getElementById('modeToggle');
+        const cat = document.getElementById('cat');
         
         modeToggle.addEventListener('click', () => {
             body.classList.toggle('light-mode');
             if (body.classList.contains('light-mode')) {
                 modeToggle.textContent = 'Switch to Dark Mode';
+                // Show the cat and switch back to dark mode after a delay
+                setTimeout(() => {
+                    cat.style.display = 'block';
+                    setTimeout(() => {
+                        body.classList.remove('light-mode');
+                        modeToggle.textContent = 'Switch to Light Mode';
+                        cat.style.display = 'none';
+                    }, 1000); // Cat stays for 1 second before switching back
+                }, 500); // Wait 0.5 seconds before showing the cat
             } else {
                 modeToggle.textContent = 'Switch to Light Mode';
             }
