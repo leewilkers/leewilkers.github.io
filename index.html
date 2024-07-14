@@ -38,8 +38,8 @@
         }
         .focus-areas li {
             font-size: 1.1em;
-            margin-bottom: 10px;
-            padding: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
             background-color: #e0f0e6;
             border: 2px solid #333333;
         }
@@ -58,6 +58,9 @@
             top: 20px;
             right: 20px;
             z-index: 1001;
+        }
+        .toggle-input {
+            display: none;
         }
         .toggle-label {
             display: block;
@@ -114,13 +117,31 @@
                 <li>Neglected tropical diseases, antibiotic resistance, and the incommensurability of risks and benefits</li>
                 <li><a href="https://www.science.org/doi/10.1126/science.add5912" target="_blank">Vaccine equity-deficit cascades</a></li>
                 <li><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.992705/full" target="_blank">Compassion</a> and <a href="https://journals.lww.com/epidem/fulltext/2020/03000/positive_epidemiology_.6.aspx" target="_blank">positive epidemiology</a></li>
+                <li><a href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2024.1332779/full" target="_blank">Intimate partner violence & coordinated care systems</a></li>
             </ul>
         </div>
         <p>Feel free to send me a message anywhere you see me — <a href="https://x.com/LeeWilkers" target="_blank">DM me on Twitter</a> or email me at <a href="mailto:leewilkers@emory.edu">leewilkers@emory.edu</a>.</p>
     </div>
     <img id="cat" src="https://media.giphy.com/media/B8MhRFZsRVRmg/giphy.gif" alt="Cat turning off light">
     <script>
-        // Your existing JavaScript remains the same
+        const body = document.body;
+        const modeToggle = document.getElementById('modeToggle');
+        const cat = document.getElementById('cat');
+        modeToggle.addEventListener('change', () => {
+            if (modeToggle.checked) {
+                body.classList.add('light-mode');
+                cat.style.display = 'block';
+                setTimeout(() => {
+                    body.classList.remove('light-mode');
+                    modeToggle.checked = false;
+                    setTimeout(() => {
+                        cat.style.display = 'none';
+                    }, 1000);
+                }, 1500);
+            } else {
+                body.classList.remove('light-mode');
+            }
+        });
     </script>
 </body>
 </html>
