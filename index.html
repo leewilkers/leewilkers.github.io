@@ -12,6 +12,7 @@
             background-color: #1a1a1a;
             margin: 0;
             padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
         .profile {
             max-width: 800px;
@@ -74,9 +75,44 @@
                 font-size: 1.8em;
             }
         }
+
+        body.light-mode {
+            color: #333333;
+            background-color: #f0f0f0;
+        }
+
+        body.light-mode h1 {
+            color: #000000;
+        }
+
+        body.light-mode a {
+            color: #0066cc;
+        }
+
+        body.light-mode a:hover {
+            color: #004080;
+        }
+
+        #modeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #4db8ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #modeToggle:hover {
+            background-color: #99d6ff;
+        }
     </style>
 </head>
 <body>
+    <button id="modeToggle">Switch to Light Mode</button>
     <div class="profile">
         <h1>Hi, I'm Lee.</h1>
         <p>I do mixed-methods research and consulting on global health at <a href="https://sph.emory.edu/" target="_blank">RSPH@Emory</a>.</p>
@@ -91,5 +127,19 @@
         </div>
         <p>Feel free to send me a message anywhere you see me — <a href="https://x.com/LeeWilkers" target="_blank">DM me on Twitter</a> or email me at <a href="mailto:leewilkers@emory.edu">leewilkers@emory.edu</a>.</p>
     </div>
+
+    <script>
+        const body = document.body;
+        const modeToggle = document.getElementById('modeToggle');
+        
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            if (body.classList.contains('light-mode')) {
+                modeToggle.textContent = 'Switch to Dark Mode';
+            } else {
+                modeToggle.textContent = 'Switch to Light Mode';
+            }
+        });
+    </script>
 </body>
 </html>
