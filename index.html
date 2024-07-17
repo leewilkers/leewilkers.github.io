@@ -78,13 +78,16 @@
             background-color: white;
             border-radius: 50%;
             transition: 0.3s;
-            transform: translateX(26px);
+            transform: translateX(0);
+        }
+        .toggle-input {
+            display: none;
         }
         .toggle-input:checked + .toggle-label {
             background-color: #333333;
         }
         .toggle-input:checked + .toggle-label .toggle-button {
-            transform: translateX(0);
+            transform: translateX(26px);
         }
         #cat {
             display: none;
@@ -158,18 +161,18 @@
         const cat = document.getElementById('cat');
         modeToggle.addEventListener('change', () => {
             if (modeToggle.checked) {
-                body.classList.remove('light-mode');
-                cat.style.display = 'none';
-            } else {
                 body.classList.add('light-mode');
                 cat.style.display = 'block';
                 setTimeout(() => {
                     body.classList.remove('light-mode');
-                    modeToggle.checked = true;
+                    modeToggle.checked = false;
                     setTimeout(() => {
                         cat.style.display = 'none';
                     }, 1000);
                 }, 1500);
+            } else {
+                body.classList.remove('light-mode');
+                cat.style.display = 'none';
             }
         });
     </script>
