@@ -2,12 +2,18 @@ const body = document.body;
 const modeToggle = document.getElementById('modeToggle');
 const cat = document.getElementById('cat');
 
+let isAnimating = false;
+
 function resetGif() {
+    if (!cat) return;  // Safety check
     cat.src = cat.src.split('?')[0] + '?t=' + new Date().getTime();
 }
 
 modeToggle.addEventListener('change', () => {
+    if (isAnimating) return;  // Prevent multiple clicks during animation
+    
     if (modeToggle.checked) {
+        isAnimating = true;
         resetGif();
         cat.style.display = 'block';
         
@@ -20,6 +26,7 @@ modeToggle.addEventListener('change', () => {
                 
                 setTimeout(() => {
                     cat.style.display = 'none';
+                    isAnimating = false;  // Animation complete
                 }, 300);
             }, 1500);
         });
