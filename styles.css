@@ -51,8 +51,7 @@ a:hover {
     border-radius: 34px;
     position: relative;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+    transition: background-color 0.3s;
 }
 .toggle-button {
     position: absolute;
@@ -65,7 +64,6 @@ a:hover {
     border-radius: 50%;
     transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
     transform: translateX(0) scale(0.9);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 .toggle-input {
     display: none;
@@ -76,9 +74,6 @@ a:hover {
 .toggle-input:checked + .toggle-label .toggle-button {
     transform: translateX(26px) scale(1);
 }
-.toggle-label:hover .toggle-button {
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
 #cat {
     display: none;
     position: absolute;
@@ -86,9 +81,7 @@ a:hover {
     inset-inline-end: 20px;
     inline-size: 150px;
     z-index: 1000;
-    border: 1px solid rgba(77, 184, 255, 0.3);
-    transition: border-color 0.3s ease;
-    border-radius: 4px;
+    border: 2px solid #4db8ff;
 }
 
 #cat.visible {
@@ -117,9 +110,6 @@ body.light-mode a {
 body.light-mode a:hover {
     background-color: #0066cc;
     color: #ffffff;
-}
-body.light-mode #cat {
-    border-color: rgba(0, 102, 204, 0.2);
 }
 @media (max-inline-size: 600px) {
     body {
