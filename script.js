@@ -16,7 +16,6 @@ modeToggle.addEventListener('change', () => {
         isAnimating = true;
         resetGif();
         cat.style.display = 'block';
-        // Force a reflow to ensure the display change takes effect
         void cat.offsetWidth;
         cat.classList.add('visible');
         
@@ -26,13 +25,15 @@ modeToggle.addEventListener('change', () => {
             setTimeout(() => {
                 body.classList.remove('light-mode');
                 modeToggle.checked = false;
-                cat.classList.remove('visible');
                 
-                // Wait for transition before hiding
+                // Keep cat visible longer to show the dark part
                 setTimeout(() => {
-                    cat.style.display = 'none';
-                    isAnimating = false;
-                }, 300);
+                    cat.classList.remove('visible');
+                    setTimeout(() => {
+                        cat.style.display = 'none';
+                        isAnimating = false;
+                    }, 300);
+                }, 1000); // Extra time for dark part
             }, 1500);
         }, 10);
     } else {
