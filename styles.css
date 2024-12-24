@@ -1,35 +1,136 @@
-const body = document.body;
-const modeToggle = document.getElementById('modeToggle');
-const cat = document.getElementById('cat');
-
-function resetGif() {
-    cat.src = cat.src.split('?')[0] + '?t=' + new Date().getTime();
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.profile {
+    max-inline-size: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #2a2a2a;
+    box-shadow: 5px 5px 0px #000000;
+    position: relative;
+}
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-block-end: 20px;
+    line-height: 1.2;
+}
+p {
+    font-size: 1.1em;
+    margin-block-end: 20px;
+    color: #e0e0e0;
+}
+a {
+    color: #4db8ff;
+    text-decoration: none;
+    border-block-end: 2px solid #4db8ff;
+    transition: all 0.3s ease;
+}
+a:hover {
+    background-color: #4db8ff;
+    color: #1a1a1a;
+}
+.toggle-container {
+    position: absolute;
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
+    z-index: 1001;
+}
+.toggle-label {
+    display: block;
+    inline-size: 60px;
+    block-size: 34px;
+    background-color: #333333;
+    border-radius: 34px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.toggle-button {
+    position: absolute;
+    content: '';
+    block-size: 26px;
+    inline-size: 26px;
+    inset-inline-start: 4px;
+    inset-block-end: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform: translateX(0) scale(0.9);
+}
+.toggle-input {
+    display: none;
+}
+.toggle-input:checked + .toggle-label {
+    background-color: #4db8ff;
+}
+.toggle-input:checked + .toggle-label .toggle-button {
+    transform: translateX(26px) scale(1);
+}
+#cat {
+    position: absolute;
+    inset-block-start: 60px;
+    inset-inline-end: 20px;
+    inline-size: 150px;
+    z-index: 1000;
+    border: 2px solid #4db8ff;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 }
 
-modeToggle.addEventListener('change', () => {
-    if (modeToggle.checked) {
-        body.classList.add('light-mode');
-        resetGif();
-        cat.style.display = 'block';
-        // Give a tiny delay to allow display:block to take effect before adding visible class
-        setTimeout(() => {
-            cat.classList.add('visible');
-        }, 10);
-        
-        setTimeout(() => {
-            body.classList.remove('light-mode');
-            modeToggle.checked = false;
-            cat.classList.remove('visible');
-            // Wait for transition to finish before hiding
-            setTimeout(() => {
-                cat.style.display = 'none';
-            }, 300);
-        }, 1500);
-    } else {
-        body.classList.remove('light-mode');
-        cat.classList.remove('visible');
-        setTimeout(() => {
-            cat.style.display = 'none';
-        }, 300);
+#cat.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+body.light-mode {
+    color: #333333;
+    background-color: #f0e6e0;
+}
+body.light-mode .profile {
+    background-color: #ffffff;
+    box-shadow: 5px 5px 0px #333333;
+}
+body.light-mode h1 {
+    color: #333333;
+}
+body.light-mode p {
+    color: #333333;
+}
+body.light-mode a {
+    color: #0066cc;
+    border-block-end-color: #0066cc;
+}
+body.light-mode a:hover {
+    background-color: #0066cc;
+    color: #ffffff;
+}
+@media (max-inline-size: 600px) {
+    body {
+        padding: 10px;
     }
-});
+    .profile {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .toggle-container {
+        inset-block-start: 10px;
+        inset-inline-end: 10px;
+    }
+    #cat {
+        inset-block-start: 50px;
+        inset-inline-end: 10px;
+        inline-size: 100px;
+    }
+}
