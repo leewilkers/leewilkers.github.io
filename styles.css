@@ -86,9 +86,9 @@ a:hover {
     inset-inline-end: 20px;
     inline-size: 150px;
     z-index: 1000;
-    border: 1px solid rgba(77, 184, 255, 0.3);
-    transition: border-color 0.3s ease;
     border-radius: 4px;
+    box-shadow: 0 0 1px rgba(77, 184, 255, 0.15);
+    transition: box-shadow 0.3s ease;
 }
 
 #cat.visible {
@@ -119,7 +119,7 @@ body.light-mode a:hover {
     color: #ffffff;
 }
 body.light-mode #cat {
-    border-color: rgba(0, 102, 204, 0.2);
+    box-shadow: 0 0 1px rgba(0, 102, 204, 0.1);
 }
 @media (max-inline-size: 600px) {
     body {
