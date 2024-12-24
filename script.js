@@ -27,14 +27,14 @@ modeToggle.addEventListener('change', () => {
                 body.classList.remove('light-mode');
                 modeToggle.checked = false;
                 
-                // Keep showing the cat for the full GIF duration
+                // Keep showing the cat for the full GIF duration, including falling animation
                 setTimeout(() => {
                     cat.classList.remove('visible');
                     setTimeout(() => {
                         cat.style.display = 'none';
                         isAnimating = false;
                     }, 300);
-                }, 1750); // Show dark part longer
+                }, 2500); // Extended to show full falling animation
             }, 750); // Halfway point
         }, 10);
     } else {
