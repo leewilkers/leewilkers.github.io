@@ -102,10 +102,29 @@ a:hover {
     transform: translateY(0);
 }
 
-/* Dramatic shadow when the light is on */
-body.light-mode #cat {
-    filter: drop-shadow(0 0 50px rgba(255, 255, 255, 0.8))
-           drop-shadow(0 0 100px rgba(255, 255, 255, 0.4));
+body.light-mode {
+    color: #333333;
+    background-color: #f0e6e0;
+}
+
+body.light-mode .profile {
+    background-color: #ffffff;
+    box-shadow: 5px 5px 0 #333333;
+}
+
+body.light-mode h1,
+body.light-mode p {
+    color: #333333;
+}
+
+body.light-mode a {
+    color: #0066cc;
+    border-block-end-color: #0066cc;
+}
+
+body.light-mode a:hover {
+    background-color: #0066cc;
+    color: #ffffff;
 }
 
 @media (max-inline-size: 600px) {
