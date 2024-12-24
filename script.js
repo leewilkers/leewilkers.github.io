@@ -22,20 +22,20 @@ modeToggle.addEventListener('change', () => {
         setTimeout(() => {
             body.classList.add('light-mode');
             
-            // Turn off light and switch halfway through (750ms)
+            // Turn off light and switch halfway through
             setTimeout(() => {
                 body.classList.remove('light-mode');
                 modeToggle.checked = false;
                 
-                // Keep showing the cat for the full GIF duration, including falling animation
+                // Keep showing the cat for the dark part
                 setTimeout(() => {
                     cat.classList.remove('visible');
                     setTimeout(() => {
                         cat.style.display = 'none';
                         isAnimating = false;
                     }, 300);
-                }, 2500); // Extended to show full falling animation
-            }, 750); // Halfway point
+                }, 2000); // Just a bit longer for the falling animation
+            }, 750);
         }, 10);
     } else {
         body.classList.remove('light-mode');
