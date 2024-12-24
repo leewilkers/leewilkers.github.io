@@ -10,16 +10,15 @@ modeToggle.addEventListener('change', () => {
     if (modeToggle.checked) {
         body.classList.add('light-mode');
         resetGif();
-        cat.style.display = 'block';
+        cat.classList.add('visible');
+        
         setTimeout(() => {
             body.classList.remove('light-mode');
             modeToggle.checked = false;
-            setTimeout(() => {
-                cat.style.display = 'none';
-            }, 1000);
+            cat.classList.remove('visible');
         }, 1500);
     } else {
         body.classList.remove('light-mode');
-        cat.style.display = 'none';
+        cat.classList.remove('visible');
     }
 });
