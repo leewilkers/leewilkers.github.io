@@ -90,9 +90,10 @@ a:hover {
     inset-inline-end: clamp(1rem, 2vw, 1.25rem);
     inline-size: clamp(100px, 15vw, 150px);
     z-index: 1;
-    border-radius: 2px;
-    filter: brightness(1.05) contrast(1.05);
     will-change: transform, opacity;
+    filter: drop-shadow(0 0 20px rgba(77, 184, 255, 0.4))
+           drop-shadow(0 0 60px rgba(77, 184, 255, 0.2));
+    transition: filter 0.3s ease-out;
 }
 
 #cat.visible {
@@ -121,7 +122,8 @@ body.light-mode a:hover {
     color: #ffffff;
 }
 body.light-mode #cat {
-    box-shadow: 0 0 1px rgba(0, 102, 204, 0.1);
+    filter: drop-shadow(0 0 20px rgba(0, 102, 204, 0.3))
+           drop-shadow(0 0 60px rgba(0, 102, 204, 0.15));
 }
 @media (max-inline-size: 600px) {
     .toggle-container {
