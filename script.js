@@ -22,19 +22,20 @@ modeToggle.addEventListener('change', () => {
         setTimeout(() => {
             body.classList.add('light-mode');
             
+            // Turn off light and switch halfway through (750ms)
             setTimeout(() => {
                 body.classList.remove('light-mode');
                 modeToggle.checked = false;
                 
-                // Keep cat visible longer to show the dark part
+                // Keep showing the cat for the full GIF duration
                 setTimeout(() => {
                     cat.classList.remove('visible');
                     setTimeout(() => {
                         cat.style.display = 'none';
                         isAnimating = false;
                     }, 300);
-                }, 1000); // Extra time for dark part
-            }, 1500);
+                }, 1750); // Show dark part longer
+            }, 750); // Halfway point
         }, 10);
     } else {
         body.classList.remove('light-mode');
