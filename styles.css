@@ -1,37 +1,39 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
     line-height: 1.6;
     color: #e0e0e0;
     background-color: #1a1a1a;
     margin: 0;
-    padding: 20px;
-    transition: background-color 0.3s, color 0.3s;
+    padding: clamp(1rem, 2vw, 1.25rem);
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
 }
 .profile {
     max-inline-size: 800px;
     margin: 0 auto;
-    padding: 40px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
     background-color: #2a2a2a;
-    box-shadow: 5px 5px 0px #000000;
+    box-shadow: 5px 5px 0 #000000;
     position: relative;
+    isolation: isolate;
 }
 h1 {
-    font-size: 2.5em;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: 700;
     color: #ffffff;
-    margin-block-end: 20px;
+    margin-block-end: clamp(1rem, 2vw, 1.25rem);
     line-height: 1.2;
 }
 p {
-    font-size: 1.1em;
-    margin-block-end: 20px;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    margin-block-end: clamp(1rem, 2vw, 1.25rem);
     color: #e0e0e0;
 }
 a {
     color: #4db8ff;
     text-decoration: none;
     border-block-end: 2px solid #4db8ff;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-out;
+    padding-inline: 0.1em;
 }
 a:hover {
     background-color: #4db8ff;
@@ -39,9 +41,9 @@ a:hover {
 }
 .toggle-container {
     position: absolute;
-    inset-block-start: 20px;
-    inset-inline-end: 20px;
-    z-index: 1001;
+    inset-block-start: clamp(1rem, 2vw, 1.25rem);
+    inset-inline-end: clamp(1rem, 2vw, 1.25rem);
+    z-index: 2;
 }
 .toggle-label {
     display: block;
@@ -51,8 +53,9 @@ a:hover {
     border-radius: 34px;
     position: relative;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+    transition: background-color 0.2s ease-out;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.4),
+                0 1px 2px rgba(255,255,255,0.05);
 }
 .toggle-button {
     position: absolute;
@@ -61,11 +64,12 @@ a:hover {
     inline-size: 26px;
     inset-inline-start: 4px;
     inset-block-end: 4px;
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 50%;
-    transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
     transform: translateX(0) scale(0.9);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    will-change: transform;
 }
 .toggle-input {
     display: none;
@@ -82,13 +86,13 @@ a:hover {
 #cat {
     display: none;
     position: absolute;
-    inset-block-start: 60px;
-    inset-inline-end: 20px;
-    inline-size: 150px;
-    z-index: 1000;
-    border-radius: 4px;
-    box-shadow: 0 0 1px rgba(77, 184, 255, 0.15);
-    transition: box-shadow 0.3s ease;
+    inset-block-start: clamp(3.75rem, 5vw, 4rem);
+    inset-inline-end: clamp(1rem, 2vw, 1.25rem);
+    inline-size: clamp(100px, 15vw, 150px);
+    z-index: 1;
+    border-radius: 2px;
+    filter: brightness(1.05) contrast(1.05);
+    will-change: transform, opacity;
 }
 
 #cat.visible {
@@ -102,11 +106,9 @@ body.light-mode {
 }
 body.light-mode .profile {
     background-color: #ffffff;
-    box-shadow: 5px 5px 0px #333333;
+    box-shadow: 5px 5px 0 #333333;
 }
-body.light-mode h1 {
-    color: #333333;
-}
+body.light-mode h1,
 body.light-mode p {
     color: #333333;
 }
@@ -122,22 +124,8 @@ body.light-mode #cat {
     box-shadow: 0 0 1px rgba(0, 102, 204, 0.1);
 }
 @media (max-inline-size: 600px) {
-    body {
-        padding: 10px;
-    }
-    .profile {
-        padding: 20px;
-    }
-    h1 {
-        font-size: 2em;
-    }
     .toggle-container {
-        inset-block-start: 10px;
-        inset-inline-end: 10px;
-    }
-    #cat {
-        inset-block-start: 50px;
-        inset-inline-end: 10px;
-        inline-size: 100px;
+        inset-block-start: clamp(0.75rem, 1.5vw, 1rem);
+        inset-inline-end: clamp(0.75rem, 1.5vw, 1rem);
     }
 }
